@@ -1,8 +1,9 @@
 server:
   port: 8081
+
 spring:
   application:
-    name: USER-SERVICE
+    name: SYS-SRV
   datasource:
     url: jdbc:sqlserver://localhost:1433;databaseName=VHL;encrypt=true;trustServerCertificate=true
     username: sa
@@ -10,9 +11,28 @@ spring:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+      # batch size cho Hibernate
+      jdbc.batch_size: 50
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        # hỗ trợ batching
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+jwt:
+  signerKey: 1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij
+  valid-duration: 600 # 10 phút cho Access Token
+  refreshable-duration: 6000 # 100 phút cho Refresh Token
+
+aes:
+  signatureKey: MySecretKey123456789012345678901 # 32 chars exactly
+  ivParameter: MyInitVector1234 # 16 chars exactly

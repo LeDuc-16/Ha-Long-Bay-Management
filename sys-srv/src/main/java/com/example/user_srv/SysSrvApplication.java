@@ -1,13 +1,13 @@
-package com.leduc.sys_srv;
+package com.example.user_srv;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserSrvApplication {
+public class SysSrvApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserSrvApplication.class, args);
+		SpringApplication.run(SysSrvApplication.class, args);
 	}
 
 }
