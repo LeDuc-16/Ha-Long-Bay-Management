@@ -1,7 +1,7 @@
 package com.example.user_srv.security;
 
 import com.example.user_srv.exception.ERROR_CODE;
-import com.example.user_srv.model.dto.request.ValidTokenRequest;
+import com.example.user_srv.dto.request.ValidTokenRequest;
 import com.example.user_srv.service.AuthenticationService;
 import com.nimbusds.jose.JOSEException;
 import lombok.AccessLevel;

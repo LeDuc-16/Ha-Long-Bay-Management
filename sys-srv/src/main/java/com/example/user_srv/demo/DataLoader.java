@@ -1,8 +1,8 @@
 package com.example.user_srv.demo;
 
 import com.example.user_srv.constant_.Constants;
-import com.example.user_srv.model.entity.Role;
-import com.example.user_srv.model.entity.User;
+import com.example.user_srv.entity.Role;
+import com.example.user_srv.entity.User;
 import com.example.user_srv.repository.RoleRepository;
 import com.example.user_srv.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;

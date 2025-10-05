@@ -1,7 +1,7 @@
 package com.example.user_srv.security;
 
 import com.example.user_srv.exception.ERROR_CODE;
-import com.example.user_srv.model.ApiResponse;
+import com.example.user_srv.dto.ApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

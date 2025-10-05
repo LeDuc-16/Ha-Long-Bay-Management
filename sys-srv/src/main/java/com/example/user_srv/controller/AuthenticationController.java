@@ -1,11 +1,11 @@
 package com.example.user_srv.controller;
 
-import com.example.user_srv.model.ApiResponse;
-import com.example.user_srv.model.dto.request.AuthenticationRequest;
-import com.example.user_srv.model.dto.request.RefreshRequest;
-import com.example.user_srv.model.dto.request.ValidTokenRequest;
-import com.example.user_srv.model.dto.response.AuthenticationResponse;
-import com.example.user_srv.model.dto.response.ValidTokenResponse;
+import com.example.user_srv.dto.ApiResponse;
+import com.example.user_srv.dto.request.AuthenticationRequest;
+import com.example.user_srv.dto.request.RefreshRequest;
+import com.example.user_srv.dto.request.ValidTokenRequest;
+import com.example.user_srv.dto.response.AuthenticationResponse;
+import com.example.user_srv.dto.response.ValidTokenResponse;
 import com.example.user_srv.service.AuthenticationService;
 import com.nimbusds.jose.JOSEException;
 import jakarta.servlet.http.HttpServletRequest;

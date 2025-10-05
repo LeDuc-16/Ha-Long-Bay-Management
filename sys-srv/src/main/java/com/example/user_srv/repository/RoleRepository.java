@@ -1,6 +1,6 @@
 package com.example.user_srv.repository;
 
-import com.example.user_srv.model.entity.Role;
+import com.example.user_srv.entity.Role;
 import feign.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

@@ -1,6 +1,6 @@
 package com.example.user_srv.exception;
 
-import com.example.user_srv.model.ApiResponse;
+import com.example.user_srv.dto.ApiResponse;
 import jakarta.validation.ConstraintViolation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

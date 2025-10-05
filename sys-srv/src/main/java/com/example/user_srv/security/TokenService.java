@@ -4,8 +4,10 @@ import com.example.user_srv.constant_.Constants;
 import com.example.user_srv.constant_.ROLE;
 import com.example.user_srv.exception.AppException;
 import com.example.user_srv.exception.ERROR_CODE;
-import com.example.user_srv.model.entity.Role;
-import com.example.user_srv.model.entity.User;
+import com.example.user_srv.entity.Role;
+import com.example.user_srv.entity.Token;
+import com.example.user_srv.entity.User;
+import com.example.user_srv.entity.enums.TokenCategory;
 import com.example.user_srv.repository.PermissionRepository;
 import com.example.user_srv.repository.RoleRepository;
 import com.example.user_srv.repository.TokenRepository;
@@ -72,6 +74,7 @@ public class TokenService {
 
     public TokenInfo generateToken(User user, boolean isAccessToken, Optional<Long> roleId) {
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
+        String jti = UUID.randomUUID().toString();
 
         long expiryTime = isAccessToken ? VALID_DURATION : REFRESHABLE_DURATION;
         Date issueTime = new Date();
@@ -95,6 +98,21 @@ public class TokenService {
 
         try {
             jwsObject.sign(new MACSigner(SIGNER_KEY.getBytes()));
+
+            TokenCategory category = isAccessToken
+                    ? TokenCategory.ACCESS_TOKEN
+                    : TokenCategory.REFRESH_TOKEN;
+
+            Token tokenEntity = Token.builder()
+                    .id(jti) // RẤT QUAN TRỌNG: Dùng JWT ID (JTI) làm ID chính của Token Entity
+                    .user(user) // Gán Entity User cho Token
+                    // Khởi tạo trạng thái mặc định: chưa hết hạn và chưa bị thu hồi
+                    .revoked(false)
+                    .expired(false)
+                    .tokenCategory(category)
+                    .build();
+
+            TokenRepository.save(tokenEntity);
             return new TokenInfo(jwsObject.serialize(), expiryDate);
         } catch (JOSEException e) {
             log.error("Cannot create token", e);

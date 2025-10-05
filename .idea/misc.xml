@@ -8,7 +8,17 @@
         <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/user-srv/pom.xml" />
         <option value="$PROJECT_DIR$/sys-srv/pom.xml" />
+        <option value="$PROJECT_DIR$/sys-srv3/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo/discovery-srv/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo/gateway-srv/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway-srv/pom.xml" />
+        <option value="$PROJECT_DIR$/discovery-srv/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../demo/discovery-srv/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -27,7 +37,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" default="true" project-jdk-name="24" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
