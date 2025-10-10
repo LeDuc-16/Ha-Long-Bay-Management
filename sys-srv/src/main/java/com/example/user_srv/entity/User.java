@@ -45,4 +45,5 @@ public class User extends BaseEntity {
     Set<Role> roles;
     Long failLogin;
     Long isBlock;
+    Long gender;
 }

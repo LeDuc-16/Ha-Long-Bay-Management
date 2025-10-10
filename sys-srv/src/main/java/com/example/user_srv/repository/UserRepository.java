@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
     Optional<User> findByIdAndIsActive(Long id, Boolean isActive);
-
+    Optional<User> findByUsernameAndIsActive(String userName, Boolean isActive);
     Optional<User> findByUsernameAndIsActiveAndIsBlock(String username, Boolean isActive, Long isBlock);
     @Query("select u from User u where u.username = :username")
     Optional<User> findByUsername(@Param("username") String username);

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio
+    ports:
+      # Cổng 9000: Dành cho API để ứng dụng kết nối vào
+      - "9000:9000"
+      # Cổng 9001: Dành cho giao diện web quản lý
+      - "9001:9001"
+    volumes:
+      # Lưu trữ dữ liệu vào thư mục minio-data ở máy thật
+      - ./minio-data:/data
+    environment:
+      # Cực kỳ quan trọng: Đây là tài khoản và mật khẩu admin
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3

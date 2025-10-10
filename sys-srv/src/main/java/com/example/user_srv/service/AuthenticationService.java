@@ -69,14 +69,16 @@ public class AuthenticationService {
         String decryptedPasswordFromDB;
         try {
             decryptedPasswordFromDB = aesHelper.decrypt(user.getPassword());
-            log.info("✅ Successfully decrypted password from database");
+            log.info("Successfully decrypted password from database");
         } catch (Exception e) {
-            log.error("❌ Failed to decrypt password from database: {}", e.getMessage());
+            log.error("Failed to decrypt password from database: {}", e.getMessage());
             throw new AppException(ERROR_CODE.INVALID_AUTH);
         }
 
         // 3. So sánh plain text passwords
         boolean authenticated = plainPasswordFromClient.equals(decryptedPasswordFromDB);
+
+        user.setIsFirstLogin(user.getIsFirstLogin() == null ? true : false);
 
         if (!authenticated) {
             // Tăng số lần login fail

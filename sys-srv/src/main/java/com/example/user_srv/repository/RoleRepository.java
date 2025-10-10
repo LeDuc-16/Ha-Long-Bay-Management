@@ -8,9 +8,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificationExecutor<Role> {
     @Query("select r from Role r where r.name = ?1")
     Optional<Role> findByName(@Param("name") String name);
+
+    @Query("SELECT r FROM Role r WHERE r.id IN :ids")
+    Set<Role> findAllByIds(@Param("ids") Set<Long> ids);
+
 }

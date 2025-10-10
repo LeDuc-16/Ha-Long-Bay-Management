@@ -46,13 +46,13 @@ public class DataLoader {
                         .dob(LocalDateTime.of(1990, 1, 1, 0, 0))
                         .roles(Set.of(adminRole))
                         .failLogin(0L)
+                        .gender(1L)
                         .isBlock(Constants.IS_BLOCK.FALSE) // set đúng để query match
                         .isFirstLogin(true)
                         .build();
 
                 userRepository.save(admin);
             }
-
         };
     }
 }

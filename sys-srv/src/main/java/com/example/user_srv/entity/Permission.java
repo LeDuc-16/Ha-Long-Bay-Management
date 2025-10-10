@@ -30,5 +30,4 @@ public class Permission extends BaseEntity {
     String appName;
 
     String description;
-
 }
